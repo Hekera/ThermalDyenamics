@@ -1,6 +1,7 @@
 package cy.jdkdigital.dyenamics.client.util;
 
 import cy.jdkdigital.dyenamics.Dyenamics;
+import cy.jdkdigital.dyenamics.client.render.block.DyenamicBannerRenderer;
 import cy.jdkdigital.dyenamics.client.render.block.DyenamicBedRenderer;
 import cy.jdkdigital.dyenamics.client.render.block.DyenamicShulkerBoxBlockEntityRenderer;
 import cy.jdkdigital.dyenamics.client.render.entity.DyenamicLlamaDecorLayer;
@@ -24,7 +25,6 @@ import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
 @Mod.EventBusSubscriber(value = Dist.CLIENT, modid = Dyenamics.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ClientSetupEvents
@@ -44,6 +44,7 @@ public class ClientSetupEvents
         event.registerBlockEntityRenderer(BlockEntityInit.BED.get(), DyenamicBedRenderer::new);
         event.registerBlockEntityRenderer(BlockEntityInit.SHULKER_BOX.get(), DyenamicShulkerBoxBlockEntityRenderer::new);
         event.registerEntityRenderer(EntityInit.SHEEP.get(), DyenamicSheepRenderer::new);
+        event.registerBlockEntityRenderer(BlockEntityInit.BANNER.get(), DyenamicBannerRenderer::new);
     }
 
     @SubscribeEvent

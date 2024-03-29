@@ -1,6 +1,7 @@
 package cy.jdkdigital.dyenamics.core.init;
 
 import cy.jdkdigital.dyenamics.Dyenamics;
+import cy.jdkdigital.dyenamics.common.blockentity.DyenamicBannerBlockEntity;
 import cy.jdkdigital.dyenamics.common.blockentity.DyenamicBedBlockEntity;
 import cy.jdkdigital.dyenamics.common.blockentity.DyenamicShulkerBoxBlockEntity;
 import cy.jdkdigital.dyenamics.core.util.DyenamicDyeColor;
@@ -39,5 +40,28 @@ public class BlockEntityInit
                     BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.LAVENDER.getSerializedName()).get("shulker_box").get(),
                     BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.PERSIMMON.getSerializedName()).get("shulker_box").get(),
                     BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.CHERENKOV.getSerializedName()).get("shulker_box").get()
+            ).build(null));
+
+    public static final RegistryObject<BlockEntityType<DyenamicBannerBlockEntity>> BANNER = BLOCK_ENTITY_TYPES.register("banner",
+            () -> BlockEntityType.Builder.of(
+                    DyenamicBannerBlockEntity::new,
+                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.PEACH.getSerializedName()).get("banner").get(),
+                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.AQUAMARINE.getSerializedName()).get("banner").get(),
+                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.FLUORESCENT.getSerializedName()).get("banner").get(),
+                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.MINT.getSerializedName()).get("banner").get(),
+                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.MAROON.getSerializedName()).get("banner").get(),
+                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.BUBBLEGUM.getSerializedName()).get("banner").get(),
+                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.LAVENDER.getSerializedName()).get("banner").get(),
+                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.PERSIMMON.getSerializedName()).get("banner").get(),
+                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.CHERENKOV.getSerializedName()).get("banner").get(),
+                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.PEACH.getSerializedName()).get("wall_banner").get(),
+                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.AQUAMARINE.getSerializedName()).get("wall_banner").get(),
+                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.FLUORESCENT.getSerializedName()).get("wall_banner").get(),
+                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.MINT.getSerializedName()).get("wall_banner").get(),
+                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.MAROON.getSerializedName()).get("wall_banner").get(),
+                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.BUBBLEGUM.getSerializedName()).get("wall_banner").get(),
+                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.LAVENDER.getSerializedName()).get("wall_banner").get(),
+                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.PERSIMMON.getSerializedName()).get("wall_banner").get(),
+                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.CHERENKOV.getSerializedName()).get("wall_banner").get()
             ).build(null));
 }

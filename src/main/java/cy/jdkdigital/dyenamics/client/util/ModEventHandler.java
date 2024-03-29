@@ -7,8 +7,10 @@ import cy.jdkdigital.dyenamics.core.init.BlockInit;
 import cy.jdkdigital.dyenamics.core.init.EntityInit;
 import cy.jdkdigital.dyenamics.core.init.ItemInit;
 import cy.jdkdigital.dyenamics.core.util.DyenamicDyeColor;
+import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.world.entity.animal.Sheep;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Items;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
@@ -24,6 +26,11 @@ public class ModEventHandler
     public static void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(EntityInit::setup);
         PacketHandler.register();
+
+        for (DyenamicDyeColor color : DyenamicDyeColor.dyenamicValues()) {
+            var blocks = BlockInit.DYED_BLOCKS.get(color.getSerializedName());
+            CauldronInteraction.WATER.put(blocks.get("banner").get().asItem(), CauldronInteraction.BANNER);
+        }
     }
 
     @SubscribeEvent
@@ -55,6 +62,7 @@ public class ModEventHandler
                 event.accept(blocks.get("candle"));
                 event.accept(blocks.get("bed"));
                 event.accept(blocks.get("shulker_box"));
+                event.accept(blocks.get("banner"));
             }
         }
     }

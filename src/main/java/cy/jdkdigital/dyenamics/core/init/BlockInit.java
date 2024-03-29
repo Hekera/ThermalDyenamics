@@ -2,6 +2,7 @@ package cy.jdkdigital.dyenamics.core.init;
 
 import cy.jdkdigital.dyenamics.Dyenamics;
 import cy.jdkdigital.dyenamics.common.blocks.*;
+import cy.jdkdigital.dyenamics.common.items.DyenamicBannerItem;
 import cy.jdkdigital.dyenamics.common.items.DyenamicBedBlockItem;
 import cy.jdkdigital.dyenamics.common.items.DyenamicShulkerBlockItem;
 import cy.jdkdigital.dyenamics.core.util.DyenamicDyeColor;
@@ -53,6 +54,8 @@ public class BlockInit
         registerBlockAndItem(colorName, "candle_cake", blocks, null, () -> new CandleCakeBlock(candle.get(), BlockBehaviour.Properties.copy(Blocks.CANDLE_CAKE).lightLevel(state -> light > 0 ? light :state.getValue(BlockStateProperties.LIT) ? 3 : 0)));
         registerBedAndItem(colorName, "bed", blocks, DyenamicBedBlockItem::new, () -> new DyenamicBedBlock(color, BlockBehaviour.Properties.copy(Blocks.WHITE_BED).mapColor((state) -> state.getValue(BedBlock.PART) == BedPart.FOOT ? mapColor : MapColor.WOOL).lightLevel(state -> light)));
         registerShulkerBoxAndItem(colorName, "shulker_box", blocks, DyenamicShulkerBlockItem::new, () -> new DyenamicShulkerBoxBlock(color, BlockBehaviour.Properties.copy(Blocks.SHULKER_BOX).mapColor(mapColor)));
+        var wallBanner = registerBlockAndItem(colorName, "wall_banner", blocks, null, () -> new DyenamicWallBannerBlock(color, BlockBehaviour.Properties.copy(Blocks.WHITE_BANNER).lightLevel(state -> light)));
+        registerBannerBlockAndItem(colorName, "banner", blocks, () -> new DyenamicBannerBlock(color, BlockBehaviour.Properties.copy(Blocks.WHITE_BANNER).lightLevel(state -> light)), wallBanner);
     }
 
     public synchronized static RegistryObject<Block> registerBedAndItem(String color, String nameSuffix, Map<String, RegistryObject<Block>> blockMap, BlockItemSupplier<?> itemSupplier, Supplier<Block> supplier) {
@@ -73,6 +76,14 @@ public class BlockInit
         if (itemSupplier != null) {
             ItemInit.ITEMS.register(name, () -> itemSupplier.create(block.get(), itemProperties));
         }
+        blockMap.put(nameSuffix, block);
+        return block;
+    }
+
+    public synchronized static RegistryObject<Block> registerBannerBlockAndItem(String color, String nameSuffix, Map<String, RegistryObject<Block>> blockMap, Supplier<Block> banner, RegistryObject<Block> wallBanner) {
+        String name = color + "_" + nameSuffix;
+        RegistryObject<Block> block = BLOCKS.register(name, banner);
+        ItemInit.ITEMS.register(name, () -> new DyenamicBannerItem(block.get(), wallBanner.get(), (new Item.Properties()).stacksTo(16)));
         blockMap.put(nameSuffix, block);
         return block;
     }

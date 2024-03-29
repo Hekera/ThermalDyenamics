@@ -1,10 +1,8 @@
 package cy.jdkdigital.dyenamics;
 
-import cy.jdkdigital.dyenamics.client.util.ModEventHandler;
 import cy.jdkdigital.dyenamics.common.cap.DyenamicSwagProvider;
 import cy.jdkdigital.dyenamics.core.init.*;
 import net.minecraft.client.resources.model.Material;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.common.capabilities.CapabilityToken;
@@ -39,8 +37,5 @@ public class Dyenamics
         EntityInit.ENTITIES.register(bus);
         BlockEntityInit.BLOCK_ENTITY_TYPES.register(bus);
         RecipeSerializerInit.RECIPE_SERIALIZERS.register(bus);
-
-//        MinecraftForge.EVENT_BUS.addListener(ModEventHandler::onEntitySpawn);
-//        MinecraftForge.EVENT_BUS.addGenericListener(ModEventHandler::attachCaps);
     }
 }
