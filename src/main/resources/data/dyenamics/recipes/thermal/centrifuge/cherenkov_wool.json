@@ -1,22 +1,22 @@
 {
-    "type": "thermal:centrifuge",
-    "group": "rockwool",
-    "ingredient": {
-        "item": "dyenamics:cherenkov_rockwool"
+  "type": "thermal:centrifuge",
+  "group": "rockwool",
+  "ingredient": {
+    "item": "dyenamics:cherenkov_rockwool"
+  },
+  "result": [
+    {
+      "item": "thermal:white_rockwool"
     },
-    "result": [
-        {
-            "item": "thermal:white_rockwool"
-        },
-        {
-            "item": "dyenamics:cherenkov_dye"
-        }
-    ],
-    "energy": 1600,
-    "conditions": [
-        {
-            "type": "forge:mod_loaded",
-            "modid": "thermal"
-        }
-    ]
+    {
+      "item": "dyenamics:cherenkov_dye"
+    }
+  ],
+  "energy": 1600,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "thermal"
+    }
+  ]
 }

@@ -1,37 +1,37 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "group": "concrete_powder",
-    "ingredients": [
-        {
-            "tag": "forge:dyes/aquamarine"
-        },
-        {
-            "item": "minecraft:sand"
-        },
-        {
-            "item": "minecraft:sand"
-        },
-        {
-            "item": "minecraft:sand"
-        },
-        {
-            "item": "minecraft:sand"
-        },
-        {
-            "item": "minecraft:gravel"
-        },
-        {
-            "item": "minecraft:gravel"
-        },
-        {
-            "item": "minecraft:gravel"
-        },
-        {
-            "item": "minecraft:gravel"
-        }
-    ],
-    "result": {
-        "item": "dyenamics:aquamarine_concrete_powder",
-        "count": 8
+  "type": "minecraft:crafting_shapeless",
+  "group": "concrete_powder",
+  "ingredients": [
+    {
+      "tag": "forge:dyes/aquamarine"
+    },
+    {
+      "item": "minecraft:sand"
+    },
+    {
+      "item": "minecraft:sand"
+    },
+    {
+      "item": "minecraft:sand"
+    },
+    {
+      "item": "minecraft:sand"
+    },
+    {
+      "item": "minecraft:gravel"
+    },
+    {
+      "item": "minecraft:gravel"
+    },
+    {
+      "item": "minecraft:gravel"
+    },
+    {
+      "item": "minecraft:gravel"
     }
+  ],
+  "result": {
+    "item": "dyenamics:aquamarine_concrete_powder",
+    "count": 8
+  }
 }

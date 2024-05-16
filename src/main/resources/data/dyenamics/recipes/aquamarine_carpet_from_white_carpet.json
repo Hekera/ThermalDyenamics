@@ -1,21 +1,21 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "group": "carpet",
-    "pattern": [
-        "###",
-        "#$#",
-        "###"
-    ],
-    "key": {
-        "#": {
-            "item": "minecraft:white_carpet"
-        },
-        "$": {
-            "tag": "forge:dyes/aquamarine"
-        }
+  "type": "minecraft:crafting_shaped",
+  "group": "carpet",
+  "pattern": [
+    "###",
+    "#$#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:white_carpet"
     },
-    "result": {
-        "item": "dyenamics:aquamarine_carpet",
-        "count": 8
+    "$": {
+      "tag": "forge:dyes/aquamarine"
     }
+  },
+  "result": {
+    "item": "dyenamics:aquamarine_carpet",
+    "count": 8
+  }
 }

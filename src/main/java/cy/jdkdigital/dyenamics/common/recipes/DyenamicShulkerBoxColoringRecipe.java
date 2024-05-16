@@ -1,6 +1,5 @@
 package cy.jdkdigital.dyenamics.common.recipes;
 
-import cy.jdkdigital.dyenamics.Dyenamics;
 import cy.jdkdigital.dyenamics.common.blocks.DyenamicShulkerBoxBlock;
 import cy.jdkdigital.dyenamics.common.items.DyenamicDyeItem;
 import cy.jdkdigital.dyenamics.core.init.RecipeSerializerInit;

@@ -1,21 +1,21 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "group": "stained_glass_pane",
-    "pattern": [
-        "###",
-        "#$#",
-        "###"
-    ],
-    "key": {
-        "#": {
-            "item": "minecraft:glass_pane"
-        },
-        "$": {
-            "tag": "forge:dyes/cherenkov"
-        }
+  "type": "minecraft:crafting_shaped",
+  "group": "stained_glass_pane",
+  "pattern": [
+    "###",
+    "#$#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:glass_pane"
     },
-    "result": {
-        "item": "dyenamics:cherenkov_stained_glass_pane",
-        "count": 8
+    "$": {
+      "tag": "forge:dyes/cherenkov"
     }
+  },
+  "result": {
+    "item": "dyenamics:cherenkov_stained_glass_pane",
+    "count": 8
+  }
 }

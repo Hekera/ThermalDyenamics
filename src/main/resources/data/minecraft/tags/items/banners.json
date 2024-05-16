@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "dyenamics:peach_banner",
+    "dyenamics:aquamarine_banner",
+    "dyenamics:fluorescent_banner",
+    "dyenamics:mint_banner",
+    "dyenamics:maroon_banner",
+    "dyenamics:bubblegum_banner",
+    "dyenamics:lavender_banner",
+    "dyenamics:persimmon_banner",
+    "dyenamics:cherenkov_banner"
+  ]
+}

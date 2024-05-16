@@ -14,6 +14,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 
 public class DyenamicBannerItemStackRenderer extends BlockEntityWithoutLevelRenderer
 {
@@ -26,9 +27,9 @@ public class DyenamicBannerItemStackRenderer extends BlockEntityWithoutLevelRend
     @Override
     public void renderByItem(ItemStack stack, ItemDisplayContext transformType, PoseStack poseStack, MultiBufferSource buffer, int pPackedLight, int pPackedOverlay) {
         if (blockEntity == null) {
-            blockEntity = new DyenamicBannerBlockEntity(BlockPos.ZERO, BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.PEACH.getSerializedName()).get("banner").get().defaultBlockState());
-            blockEntity.fromItem(stack);
+            blockEntity = new DyenamicBannerBlockEntity(BlockPos.ZERO, Blocks.WHITE_BANNER.defaultBlockState());
         }
+        blockEntity.fromItem(stack);
         Item item = stack.getItem();
         if (item instanceof BlockItem) {
             Block block = ((BlockItem) item).getBlock();

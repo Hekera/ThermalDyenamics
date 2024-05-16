@@ -1,21 +1,21 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "group": "carpet",
-    "pattern": [
-        "###",
-        "#$#",
-        "###"
-    ],
-    "key": {
-        "#": {
-            "item": "minecraft:white_carpet"
-        },
-        "$": {
-            "tag": "forge:dyes/bubblegum"
-        }
+  "type": "minecraft:crafting_shaped",
+  "group": "carpet",
+  "pattern": [
+    "###",
+    "#$#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:white_carpet"
     },
-    "result": {
-        "item": "dyenamics:bubblegum_carpet",
-        "count": 8
+    "$": {
+      "tag": "forge:dyes/bubblegum"
     }
+  },
+  "result": {
+    "item": "dyenamics:bubblegum_carpet",
+    "count": 8
+  }
 }

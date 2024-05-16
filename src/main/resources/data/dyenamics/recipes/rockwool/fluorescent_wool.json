@@ -1,21 +1,21 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "group": "rockwool",
-    "ingredients": [
-        {
-            "tag": "forge:dyes/fluorescent"
-        },
-        {
-            "item": "thermal:white_rockwool"
-        }
-    ],
-    "result": {
-        "item": "dyenamics:fluorescent_rockwool"
+  "type": "minecraft:crafting_shapeless",
+  "group": "rockwool",
+  "ingredients": [
+    {
+      "tag": "forge:dyes/fluorescent"
     },
-    "conditions": [
-        {
-            "type": "forge:mod_loaded",
-            "modid": "thermal"
-        }
-    ]
+    {
+      "item": "thermal:white_rockwool"
+    }
+  ],
+  "result": {
+    "item": "dyenamics:fluorescent_rockwool"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "thermal"
+    }
+  ]
 }

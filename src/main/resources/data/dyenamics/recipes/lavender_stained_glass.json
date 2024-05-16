@@ -1,21 +1,21 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "group": "stained_glass",
-    "pattern": [
-        "###",
-        "#X#",
-        "###"
-    ],
-    "key": {
-        "#": {
-            "item": "minecraft:glass"
-        },
-        "X": {
-            "tag": "forge:dyes/lavender"
-        }
+  "type": "minecraft:crafting_shaped",
+  "group": "stained_glass",
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:glass"
     },
-    "result": {
-        "item": "dyenamics:lavender_stained_glass",
-        "count": 8
+    "X": {
+      "tag": "forge:dyes/lavender"
     }
+  },
+  "result": {
+    "item": "dyenamics:lavender_stained_glass",
+    "count": 8
+  }
 }

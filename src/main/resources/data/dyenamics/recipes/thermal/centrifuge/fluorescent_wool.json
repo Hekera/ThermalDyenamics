@@ -1,22 +1,22 @@
 {
-    "type": "thermal:centrifuge",
-    "group": "rockwool",
-    "ingredient": {
-        "item": "dyenamics:fluorescent_rockwool"
+  "type": "thermal:centrifuge",
+  "group": "rockwool",
+  "ingredient": {
+    "item": "dyenamics:fluorescent_rockwool"
+  },
+  "result": [
+    {
+      "item": "thermal:white_rockwool"
     },
-    "result": [
-        {
-            "item": "thermal:white_rockwool"
-        },
-        {
-            "item": "dyenamics:fluorescent_dye"
-        }
-    ],
-    "energy": 1600,
-    "conditions": [
-        {
-            "type": "forge:mod_loaded",
-            "modid": "thermal"
-        }
-    ]
+    {
+      "item": "dyenamics:fluorescent_dye"
+    }
+  ],
+  "energy": 1600,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "thermal"
+    }
+  ]
 }

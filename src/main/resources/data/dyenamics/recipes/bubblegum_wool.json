@@ -1,15 +1,15 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "group": "wool",
-    "ingredients": [
-        {
-            "tag": "forge:dyes/bubblegum"
-        },
-        {
-            "item": "minecraft:white_wool"
-        }
-    ],
-    "result": {
-        "item": "dyenamics:bubblegum_wool"
+  "type": "minecraft:crafting_shapeless",
+  "group": "wool",
+  "ingredients": [
+    {
+      "tag": "forge:dyes/bubblegum"
+    },
+    {
+      "item": "minecraft:white_wool"
     }
+  ],
+  "result": {
+    "item": "dyenamics:bubblegum_wool"
+  }
 }

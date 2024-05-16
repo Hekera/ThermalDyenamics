@@ -1,21 +1,21 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "group": "rockwool",
-    "ingredients": [
-        {
-            "tag": "forge:dyes/mint"
-        },
-        {
-            "item": "thermal:white_rockwool"
-        }
-    ],
-    "result": {
-        "item": "dyenamics:mint_rockwool"
+  "type": "minecraft:crafting_shapeless",
+  "group": "rockwool",
+  "ingredients": [
+    {
+      "tag": "forge:dyes/mint"
     },
-    "conditions": [
-        {
-            "type": "forge:mod_loaded",
-            "modid": "thermal"
-        }
-    ]
+    {
+      "item": "thermal:white_rockwool"
+    }
+  ],
+  "result": {
+    "item": "dyenamics:mint_rockwool"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "thermal"
+    }
+  ]
 }

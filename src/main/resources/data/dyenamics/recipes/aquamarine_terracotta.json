@@ -1,21 +1,21 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "group": "stained_terracotta",
-    "pattern": [
-        "###",
-        "#X#",
-        "###"
-    ],
-    "key": {
-        "#": {
-            "item": "minecraft:terracotta"
-        },
-        "X": {
-            "tag": "forge:dyes/aquamarine"
-        }
+  "type": "minecraft:crafting_shaped",
+  "group": "stained_terracotta",
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:terracotta"
     },
-    "result": {
-        "item": "dyenamics:aquamarine_terracotta",
-        "count": 8
+    "X": {
+      "tag": "forge:dyes/aquamarine"
     }
+  },
+  "result": {
+    "item": "dyenamics:aquamarine_terracotta",
+    "count": 8
+  }
 }

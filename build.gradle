@@ -88,6 +88,8 @@ dependencies {
     implementation fg.deobf("curse.maven:cofh-core-69162:4970669")
     implementation fg.deobf("curse.maven:thermal-foundation-222880:4979840")
     implementation fg.deobf("curse.maven:thermal-expansion-69163:4970700")
+    implementation fg.deobf("curse.maven:cucumber-272335:4990314")
+    implementation fg.deobf("curse.maven:mystical-agriculture-246640:5180446")
 }
 
 def resourceTargets = ['META-INF/mods.toml', 'pack.mcmeta']

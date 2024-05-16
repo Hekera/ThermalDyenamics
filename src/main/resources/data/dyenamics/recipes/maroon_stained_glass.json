@@ -1,21 +1,21 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "group": "stained_glass",
-    "pattern": [
-        "###",
-        "#X#",
-        "###"
-    ],
-    "key": {
-        "#": {
-            "item": "minecraft:glass"
-        },
-        "X": {
-            "tag": "forge:dyes/maroon"
-        }
+  "type": "minecraft:crafting_shaped",
+  "group": "stained_glass",
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:glass"
     },
-    "result": {
-        "item": "dyenamics:maroon_stained_glass",
-        "count": 8
+    "X": {
+      "tag": "forge:dyes/maroon"
     }
+  },
+  "result": {
+    "item": "dyenamics:maroon_stained_glass",
+    "count": 8
+  }
 }
