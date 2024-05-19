@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "stained_glass",
+  "key": {
+    "#": {
+      "item": "dyenamics:icy_blue_stained_glass"
+    }
+  },
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 16,
+    "item": "dyenamics:icy_blue_stained_glass_pane"
+  },
+  "show_notification": true
+}

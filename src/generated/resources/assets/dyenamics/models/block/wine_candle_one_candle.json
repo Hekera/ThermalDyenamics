@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_candle",
+  "textures": {
+    "all": "dyenamics:block/wine_candle",
+    "particle": "dyenamics:block/wine_candle"
+  }
+}

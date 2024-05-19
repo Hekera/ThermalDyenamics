@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "carpet",
+  "ingredients": [
+    {
+      "tag": "minecraft:wool_carpets"
+    },
+    {
+      "tag": "forge:dyes/honey"
+    }
+  ],
+  "result": {
+    "item": "dyenamics:honey_carpet"
+  }
+}

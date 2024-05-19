@@ -5,10 +5,15 @@ import cy.jdkdigital.dyenamics.common.blockentity.DyenamicBannerBlockEntity;
 import cy.jdkdigital.dyenamics.common.blockentity.DyenamicBedBlockEntity;
 import cy.jdkdigital.dyenamics.common.blockentity.DyenamicShulkerBoxBlockEntity;
 import cy.jdkdigital.dyenamics.core.util.DyenamicDyeColor;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
 
 public class BlockEntityInit
 {
@@ -17,51 +22,24 @@ public class BlockEntityInit
     public static final RegistryObject<BlockEntityType<DyenamicBedBlockEntity>> BED = BLOCK_ENTITY_TYPES.register("bed",
             () -> BlockEntityType.Builder.of(
                     DyenamicBedBlockEntity::new,
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.PEACH.getSerializedName()).get("bed").get(),
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.AQUAMARINE.getSerializedName()).get("bed").get(),
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.FLUORESCENT.getSerializedName()).get("bed").get(),
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.MINT.getSerializedName()).get("bed").get(),
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.MAROON.getSerializedName()).get("bed").get(),
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.BUBBLEGUM.getSerializedName()).get("bed").get(),
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.LAVENDER.getSerializedName()).get("bed").get(),
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.PERSIMMON.getSerializedName()).get("bed").get(),
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.CHERENKOV.getSerializedName()).get("bed").get()
+                    Arrays.stream(DyenamicDyeColor.dyenamicValues()).map(dyenamicDyeColor -> {
+                        return BlockInit.DYED_BLOCKS.get(dyenamicDyeColor.getSerializedName()).get("bed").get();
+                    }).toList().toArray(new Block[0])
             ).build(null));
 
     public static final RegistryObject<BlockEntityType<DyenamicShulkerBoxBlockEntity>> SHULKER_BOX = BLOCK_ENTITY_TYPES.register("shulker_box",
             () -> BlockEntityType.Builder.of(
                     DyenamicShulkerBoxBlockEntity::new,
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.PEACH.getSerializedName()).get("shulker_box").get(),
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.AQUAMARINE.getSerializedName()).get("shulker_box").get(),
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.FLUORESCENT.getSerializedName()).get("shulker_box").get(),
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.MINT.getSerializedName()).get("shulker_box").get(),
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.MAROON.getSerializedName()).get("shulker_box").get(),
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.BUBBLEGUM.getSerializedName()).get("shulker_box").get(),
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.LAVENDER.getSerializedName()).get("shulker_box").get(),
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.PERSIMMON.getSerializedName()).get("shulker_box").get(),
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.CHERENKOV.getSerializedName()).get("shulker_box").get()
+                    Arrays.stream(DyenamicDyeColor.dyenamicValues()).map(dyenamicDyeColor -> {
+                        return BlockInit.DYED_BLOCKS.get(dyenamicDyeColor.getSerializedName()).get("shulker_box").get();
+                    }).toList().toArray(new Block[0])
             ).build(null));
 
     public static final RegistryObject<BlockEntityType<DyenamicBannerBlockEntity>> BANNER = BLOCK_ENTITY_TYPES.register("banner",
             () -> BlockEntityType.Builder.of(
                     DyenamicBannerBlockEntity::new,
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.PEACH.getSerializedName()).get("banner").get(),
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.AQUAMARINE.getSerializedName()).get("banner").get(),
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.FLUORESCENT.getSerializedName()).get("banner").get(),
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.MINT.getSerializedName()).get("banner").get(),
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.MAROON.getSerializedName()).get("banner").get(),
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.BUBBLEGUM.getSerializedName()).get("banner").get(),
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.LAVENDER.getSerializedName()).get("banner").get(),
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.PERSIMMON.getSerializedName()).get("banner").get(),
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.CHERENKOV.getSerializedName()).get("banner").get(),
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.PEACH.getSerializedName()).get("wall_banner").get(),
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.AQUAMARINE.getSerializedName()).get("wall_banner").get(),
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.FLUORESCENT.getSerializedName()).get("wall_banner").get(),
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.MINT.getSerializedName()).get("wall_banner").get(),
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.MAROON.getSerializedName()).get("wall_banner").get(),
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.BUBBLEGUM.getSerializedName()).get("wall_banner").get(),
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.LAVENDER.getSerializedName()).get("wall_banner").get(),
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.PERSIMMON.getSerializedName()).get("wall_banner").get(),
-                    BlockInit.DYED_BLOCKS.get(DyenamicDyeColor.CHERENKOV.getSerializedName()).get("wall_banner").get()
+                    Arrays.stream(DyenamicDyeColor.dyenamicValues()).flatMap(dyenamicDyeColor -> {
+                        return Stream.of(BlockInit.DYED_BLOCKS.get(dyenamicDyeColor.getSerializedName()).get("banner").get(), BlockInit.DYED_BLOCKS.get(dyenamicDyeColor.getSerializedName()).get("wall_banner").get());
+                    }).toList().toArray(new Block[0])
             ).build(null));
 }

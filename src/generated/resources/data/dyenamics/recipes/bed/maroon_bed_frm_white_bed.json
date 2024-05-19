@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "dyed_bed",
+  "ingredients": [
+    {
+      "tag": "minecraft:beds"
+    },
+    {
+      "tag": "forge:dyes/maroon"
+    }
+  ],
+  "result": {
+    "item": "dyenamics:maroon_bed"
+  }
+}

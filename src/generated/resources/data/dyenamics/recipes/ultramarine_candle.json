@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "dyed_candle",
+  "ingredients": [
+    {
+      "item": "minecraft:candle"
+    },
+    {
+      "tag": "forge:dyes/ultramarine"
+    }
+  ],
+  "result": {
+    "item": "dyenamics:ultramarine_candle"
+  }
+}

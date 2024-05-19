@@ -1,0 +1,6 @@
+{
+  "parent": "dyenamics:block/stained_glass",
+  "textures": {
+    "all": "dyenamics:block/persimmon_stained_glass"
+  }
+}

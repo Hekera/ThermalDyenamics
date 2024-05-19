@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "thermal"
+    }
+  ],
+  "group": "rockwool",
+  "ingredients": [
+    {
+      "item": "thermal:white_rockwool"
+    },
+    {
+      "tag": "forge:dyes/conifer"
+    }
+  ],
+  "result": {
+    "item": "dyenamics:conifer_rockwool"
+  }
+}

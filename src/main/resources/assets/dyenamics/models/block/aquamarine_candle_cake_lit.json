@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/template_cake_with_candle",
-  "textures": {
-    "candle": "dyenamics:block/aquamarine_candle_lit"
-  }
-}

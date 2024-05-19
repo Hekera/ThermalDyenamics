@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "dyenamics:honey_terracotta"
+  },
+  "result": "dyenamics:honey_glazed_terracotta"
+}

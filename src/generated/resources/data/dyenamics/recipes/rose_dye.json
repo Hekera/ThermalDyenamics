@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "rose_dye",
+  "ingredients": [
+    {
+      "tag": "forge:dyes/bubblegum"
+    },
+    {
+      "tag": "forge:dyes/maroon"
+    }
+  ],
+  "result": {
+    "count": 3,
+    "item": "dyenamics:rose_dye"
+  }
+}

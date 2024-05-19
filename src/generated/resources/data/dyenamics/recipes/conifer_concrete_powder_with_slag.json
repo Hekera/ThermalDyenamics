@@ -1,0 +1,44 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "thermal"
+    }
+  ],
+  "group": "concrete_powder",
+  "ingredients": [
+    {
+      "tag": "forge:dyes/conifer"
+    },
+    {
+      "item": "minecraft:sand"
+    },
+    {
+      "item": "minecraft:sand"
+    },
+    {
+      "item": "minecraft:sand"
+    },
+    {
+      "item": "minecraft:sand"
+    },
+    {
+      "item": "thermal:slag"
+    },
+    {
+      "item": "thermal:slag"
+    },
+    {
+      "item": "thermal:slag"
+    },
+    {
+      "item": "thermal:slag"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "item": "dyenamics:conifer_concrete_powder"
+  }
+}

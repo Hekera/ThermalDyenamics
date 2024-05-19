@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:survives_explosion"
+            }
+          ],
+          "name": "dyenamics:persimmon_terracotta"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "dyenamics:blocks/persimmon_terracotta"
+}

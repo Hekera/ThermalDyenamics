@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_two_candles",
+  "textures": {
+    "all": "dyenamics:block/ultramarine_candle",
+    "particle": "dyenamics:block/ultramarine_candle"
+  }
+}

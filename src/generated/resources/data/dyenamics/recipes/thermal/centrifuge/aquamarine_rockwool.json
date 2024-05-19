@@ -1,0 +1,21 @@
+{
+  "type": "thermal:centrifuge",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "thermal"
+    }
+  ],
+  "energy": 1600,
+  "ingredient": {
+    "item": "dyenamics:aquamarine_rockwool"
+  },
+  "result": [
+    {
+      "item": "thermal:white_rockwool"
+    },
+    {
+      "item": "dyenamics:aquamarine_dye"
+    }
+  ]
+}

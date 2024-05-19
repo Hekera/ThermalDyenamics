@@ -1,0 +1,6 @@
+{
+  "parent": "dyenamics:block/stained_glass",
+  "textures": {
+    "all": "dyenamics:block/spring_green_stained_glass"
+  }
+}

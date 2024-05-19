@@ -46,7 +46,17 @@ public enum DyenamicDyeColor implements StringRepresentable
     BUBBLEGUM(21, "bubblegum", 16216518, DyeColor.PINK, MapColor.COLOR_PINK, 16216518, 14574769, 0),
     LAVENDER(22, "lavender", 14522879, DyeColor.MAGENTA, MapColor.COLOR_PURPLE, 14522879, 13339371, 0),
     PERSIMMON(23, "persimmon", 13779225, DyeColor.ORANGE, MapColor.TERRACOTTA_ORANGE, 13779225, 12203795, 0),
-    CHERENKOV(24, "cherenkov", 104655, DyeColor.LIGHT_BLUE, MapColor.COLOR_LIGHT_BLUE, 104655, 35002, 8);
+    CHERENKOV(24, "cherenkov", 104655, DyeColor.LIGHT_BLUE, MapColor.COLOR_LIGHT_BLUE, 104655, 35002, 8),
+
+    AMBER(25, "amber", 13857561, DyeColor.ORANGE, MapColor.TERRACOTTA_ORANGE, 13857561, 12801806, 0),
+    HONEY(26, "honey", 16757830, DyeColor.YELLOW, MapColor.TERRACOTTA_YELLOW, 16757830, 16754768, 0),
+    ULTRAMARINE(27, "ultramarine", 5655039, DyeColor.BLUE, MapColor.COLOR_BLUE, 5655039, 3944959, 0),
+    SPRING_GREEN(28, "spring_green", 12844953, DyeColor.LIME, MapColor.TERRACOTTA_LIGHT_GREEN, 12844953, 9437081, 8),
+    ROSE(29, "rose", 16722021, DyeColor.RED, MapColor.TERRACOTTA_RED, 16722021, 14231653, 0),
+    NAVY(30, "navy", 1845361, DyeColor.BLUE, MapColor.TERRACOTTA_BLUE, 1845361, 1187691, 0),
+    ICY_BLUE(31, "icy_blue", 10414847, DyeColor.BLUE, MapColor.TERRACOTTA_BLUE, 10414847, 7855103, 0),
+    WINE(32, "wine", 7478875, DyeColor.PURPLE, MapColor.COLOR_PURPLE, 7478875, 7018338, 0),
+    CONIFER(33, "conifer", 12245589, DyeColor.LIME, MapColor.TERRACOTTA_LIGHT_GREEN, 12245589, 11061816, 0);
 
     private static final DyenamicDyeColor[] VALUES = Arrays.stream(values()).sorted(Comparator.comparingInt(DyenamicDyeColor::getId)).toArray(DyenamicDyeColor[]::new);
 

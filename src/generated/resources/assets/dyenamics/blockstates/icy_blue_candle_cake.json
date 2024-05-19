@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "dyenamics:block/icy_blue_candle_cake"
+    },
+    "lit=true": {
+      "model": "dyenamics:block/icy_blue_candle_cake_lit"
+    }
+  }
+}

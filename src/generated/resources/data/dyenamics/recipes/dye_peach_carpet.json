@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "carpet",
+  "ingredients": [
+    {
+      "tag": "minecraft:wool_carpets"
+    },
+    {
+      "tag": "forge:dyes/peach"
+    }
+  ],
+  "result": {
+    "item": "dyenamics:peach_carpet"
+  }
+}

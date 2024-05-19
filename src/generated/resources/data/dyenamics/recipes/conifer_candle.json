@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "dyed_candle",
+  "ingredients": [
+    {
+      "item": "minecraft:candle"
+    },
+    {
+      "tag": "forge:dyes/conifer"
+    }
+  ],
+  "result": {
+    "item": "dyenamics:conifer_candle"
+  }
+}

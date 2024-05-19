@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "wool",
+  "ingredients": [
+    {
+      "tag": "forge:dyes/honey"
+    },
+    {
+      "tag": "minecraft:wool"
+    }
+  ],
+  "result": {
+    "item": "dyenamics:honey_wool"
+  }
+}

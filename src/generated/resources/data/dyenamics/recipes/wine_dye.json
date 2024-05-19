@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "wine_dye",
+  "ingredients": [
+    {
+      "tag": "forge:dyes/black"
+    },
+    {
+      "tag": "forge:dyes/purple"
+    },
+    {
+      "tag": "forge:dyes/maroon"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "dyenamics:wine_dye"
+  }
+}
