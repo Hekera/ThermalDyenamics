@@ -7,10 +7,9 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.ItemTags;
-import net.minecraftforge.common.Tags;
-import net.minecraftforge.common.data.BlockTagsProvider;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.common.data.BlockTagsProvider;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -39,14 +38,14 @@ public class BlockTagProvider extends BlockTagsProvider
             tag(BlockTags.SHULKER_BOXES).add(BlockInit.DYED_BLOCKS.get(color.getSerializedName()).get("shulker_box").get());
             tag(BlockTags.IMPERMEABLE).add(BlockInit.DYED_BLOCKS.get(color.getSerializedName()).get("stained_glass").get());
 
-            tag(Tags.Blocks.GLASS).add(BlockInit.DYED_BLOCKS.get(color.getSerializedName()).get("stained_glass").get());
-            tag(Tags.Blocks.STAINED_GLASS).add(BlockInit.DYED_BLOCKS.get(color.getSerializedName()).get("stained_glass").get());
+            tag(Tags.Blocks.GLASS_BLOCKS).add(BlockInit.DYED_BLOCKS.get(color.getSerializedName()).get("stained_glass").get());
+            tag(Tags.Blocks.GLASS_BLOCKS_TINTED).add(BlockInit.DYED_BLOCKS.get(color.getSerializedName()).get("stained_glass").get());
             tag(Tags.Blocks.GLASS_PANES).add(BlockInit.DYED_BLOCKS.get(color.getSerializedName()).get("stained_glass_pane").get());
-            tag(Tags.Blocks.STAINED_GLASS_PANES).add(BlockInit.DYED_BLOCKS.get(color.getSerializedName()).get("stained_glass_pane").get());
-            tag(BlockTags.create(new ResourceLocation("forge:glass/" + color.getSerializedName()))).add(BlockInit.DYED_BLOCKS.get(color.getSerializedName()).get("stained_glass").get());
-            tag(BlockTags.create(new ResourceLocation("forge:glass_panes/" + color.getSerializedName()))).add(BlockInit.DYED_BLOCKS.get(color.getSerializedName()).get("stained_glass_pane").get());
+//            tag(Tags.Blocks.GLASS_PANES_TINTED).add(BlockInit.DYED_BLOCKS.get(color.getSerializedName()).get("stained_glass_pane").get());
+            tag(BlockTags.create(ResourceLocation.parse("c:glass/" + color.getSerializedName()))).add(BlockInit.DYED_BLOCKS.get(color.getSerializedName()).get("stained_glass").get());
+            tag(BlockTags.create(ResourceLocation.parse("c:glass_panes/" + color.getSerializedName()))).add(BlockInit.DYED_BLOCKS.get(color.getSerializedName()).get("stained_glass_pane").get());
 
-            tag(BlockTags.create(new ResourceLocation("thermal:rockwool"))).add(BlockInit.DYED_BLOCKS.get(color.getSerializedName()).get("rockwool").get());
+            tag(BlockTags.create(ResourceLocation.parse("thermal:rockwool"))).add(BlockInit.DYED_BLOCKS.get(color.getSerializedName()).get("rockwool").get());
         }
     }
 

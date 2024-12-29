@@ -1,6 +1,6 @@
 package cy.jdkdigital.dyenamics.common.blockentity;
 
-import cy.jdkdigital.dyenamics.common.blocks.DyenamicShulkerBoxBlock;
+import cy.jdkdigital.dyenamics.common.block.DyenamicShulkerBoxBlock;
 import cy.jdkdigital.dyenamics.core.init.BlockEntityInit;
 import cy.jdkdigital.dyenamics.core.util.DyenamicDyeColor;
 import net.minecraft.core.BlockPos;

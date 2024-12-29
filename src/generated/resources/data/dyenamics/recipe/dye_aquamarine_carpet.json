@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "carpet",
+  "ingredients": [
+    {
+      "tag": "minecraft:wool_carpets"
+    },
+    {
+      "tag": "c:dyes/aquamarine"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "dyenamics:aquamarine_carpet"
+  }
+}

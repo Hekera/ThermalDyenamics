@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "dyed_bed",
+  "ingredients": [
+    {
+      "tag": "minecraft:beds"
+    },
+    {
+      "tag": "c:dyes/cherenkov"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "dyenamics:cherenkov_bed"
+  }
+}

@@ -6,7 +6,7 @@ import cy.jdkdigital.dyenamics.core.init.ItemInit;
 import cy.jdkdigital.dyenamics.core.util.DyenamicDyeColor;
 import net.minecraft.data.PackOutput;
 
-public class LanguageProvider extends net.minecraftforge.common.data.LanguageProvider
+public class LanguageProvider extends net.neoforged.neoforge.common.data.LanguageProvider
 {
     public LanguageProvider(PackOutput output) {
         super(output, Dyenamics.MOD_ID, "en_us");

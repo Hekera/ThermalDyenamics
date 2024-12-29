@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/template_glazed_terracotta",
   "textures": {
-    "all": "dyenamics:block/rose_glazed_terracotta"
+    "pattern": "dyenamics:block/rose_glazed_terracotta"
   }
 }

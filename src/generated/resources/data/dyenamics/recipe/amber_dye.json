@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "amber_dye",
+  "ingredients": [
+    {
+      "tag": "c:dyes/orange"
+    },
+    {
+      "tag": "c:dyes/persimmon"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "id": "dyenamics:amber_dye"
+  }
+}

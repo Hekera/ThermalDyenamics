@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "stained_glass",
+  "key": {
+    "#": {
+      "item": "dyenamics:fluorescent_stained_glass"
+    }
+  },
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 16,
+    "id": "dyenamics:fluorescent_stained_glass_pane"
+  }
+}

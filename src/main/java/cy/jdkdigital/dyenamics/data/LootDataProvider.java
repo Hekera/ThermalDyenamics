@@ -4,6 +4,7 @@ import com.google.common.collect.Maps;
 import cy.jdkdigital.dyenamics.core.init.BlockInit;
 import cy.jdkdigital.dyenamics.core.init.EntityInit;
 import cy.jdkdigital.dyenamics.core.util.DyenamicDyeColor;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
@@ -34,10 +35,12 @@ public class LootDataProvider implements DataProvider
 {
     private final PackOutput.PathProvider pathProvider;
     private final List<LootTableProvider.SubProviderEntry> subProviders;
+    private final CompletableFuture<HolderLookup.Provider> registries;
 
-    public LootDataProvider(PackOutput output, List<LootTableProvider.SubProviderEntry> providers) {
-        this.pathProvider = output.createPathProvider(PackOutput.Target.DATA_PACK, "loot_tables");
+    public LootDataProvider(PackOutput output, List<LootTableProvider.SubProviderEntry> providers, CompletableFuture<HolderLookup.Provider> registries) {
+        this.pathProvider = output.createPathProvider(PackOutput.Target.DATA_PACK, "loot_table");
         this.subProviders = providers;
+        this.registries = registries;
     }
 
     @Override
@@ -46,19 +49,23 @@ public class LootDataProvider implements DataProvider
     }
 
     @Override
-    public CompletableFuture<?> run(CachedOutput cache) {
+    public CompletableFuture<?> run(CachedOutput pOutput) {
+        return this.registries.thenCompose(provider -> this.run(pOutput, provider));
+    }
+
+    private CompletableFuture<?> run(CachedOutput pOutput, HolderLookup.Provider pProvider) {
         final Map<ResourceLocation, LootTable> map = Maps.newHashMap();
         this.subProviders.forEach((providerEntry) -> {
-            providerEntry.provider().get().generate((resourceLocation, builder) -> {
-                builder.setRandomSequence(resourceLocation);
-                if (map.put(resourceLocation, builder.setParamSet(providerEntry.paramSet()).build()) != null) {
-                    throw new IllegalStateException("Duplicate loot table " + resourceLocation);
+            providerEntry.provider().apply(pProvider).generate((resourceKey, builder) -> {
+                builder.setRandomSequence(resourceKey.location());
+                if (map.put(resourceKey.location(), builder.setParamSet(providerEntry.paramSet()).build()) != null) {
+                    throw new IllegalStateException("Duplicate loot table " + resourceKey.location());
                 }
             });
         });
 
         return CompletableFuture.allOf(map.entrySet().stream().map((entry) -> {
-            return DataProvider.saveStable(cache, LootDataType.TABLE.parser().toJsonTree(entry.getValue()), this.pathProvider.json(entry.getKey()));
+            return DataProvider.saveStable(pOutput, pProvider, LootTable.DIRECT_CODEC, entry.getValue(), this.pathProvider.json(entry.getKey()));
         }).toArray(CompletableFuture[]::new));
     }
 
@@ -67,8 +74,8 @@ public class LootDataProvider implements DataProvider
         private static final Map<Block, Function<Block, LootTable.Builder>> functionTable = new HashMap<>();
         private List<Block> knownBlocks = new ArrayList<>();
 
-        public BlockProvider() {
-            super(Set.of(), FeatureFlags.REGISTRY.allFlags());
+        public BlockProvider(HolderLookup.Provider registries) {
+            super(Set.of(), FeatureFlags.REGISTRY.allFlags(), registries);
         }
 
         @Override
@@ -139,14 +146,14 @@ public class LootDataProvider implements DataProvider
     {
         List<EntityType<?>> knownEntities = new ArrayList<>();
 
-        public EntityLootProvider() {
-            super(FeatureFlags.REGISTRY.allFlags());
+        public EntityLootProvider(HolderLookup.Provider registries) {
+            super(FeatureFlags.REGISTRY.allFlags(), registries);
         }
 
         @Override
         public void generate() {
             for (DyenamicDyeColor color: DyenamicDyeColor.dyenamicValues()) {
-                // TODO make work?
+                // TODO make work
 //                addSheep(color);
             }
         }
@@ -154,10 +161,9 @@ public class LootDataProvider implements DataProvider
         private void addSheep(DyenamicDyeColor color) {
             var item = BlockInit.DYED_BLOCKS.get(color.getSerializedName()).get("wool").get();
 
-
             var loot = LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(item)));
 
-            this.add(EntityInit.SHEEP.get(), loot);
+            this.add(EntityType.SHEEP, loot);
         }
 
         protected void add(EntityType<?> pEntityType, LootTable.Builder pBuilder) {

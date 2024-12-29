@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 
 public class DyenamicLlamaDecorLayer extends LlamaDecorLayer
 {
-    private static final Map<String, ResourceLocation> TEXTURE_LOCATIONS = Arrays.stream(DyenamicDyeColor.dyenamicValues()).collect(Collectors.toMap(DyenamicDyeColor::getSerializedName, color -> new ResourceLocation(Dyenamics.MOD_ID, "textures/entity/llama/decor/" + color.getSerializedName() + "_swag.png")));
+    private static final Map<String, ResourceLocation> TEXTURE_LOCATIONS = Arrays.stream(DyenamicDyeColor.dyenamicValues()).collect(Collectors.toMap(DyenamicDyeColor::getSerializedName, color ->  ResourceLocation.fromNamespaceAndPath(Dyenamics.MOD_ID, "textures/entity/llama/decor/" + color.getSerializedName() + "_swag.png")));
     private final LlamaModel<Llama> model;
 
     public DyenamicLlamaDecorLayer(RenderLayerParent<Llama, LlamaModel<Llama>> layerParent, EntityModelSet modelSet) {
@@ -31,20 +31,20 @@ public class DyenamicLlamaDecorLayer extends LlamaDecorLayer
 
     @Override
     public void render(PoseStack poseStack, MultiBufferSource bufferIn, int packedLightIn, Llama llama, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
-        llama.getCapability(Dyenamics.DYENAMIC_SWAG).ifPresent(swagProvider -> {
-            if (swagProvider.getSwagId() >= 16) {
-                DyenamicDyeColor color = DyenamicDyeColor.byId(swagProvider.getSwagId());
-                ResourceLocation resourcelocation;
-                if (color != null) {
-                    resourcelocation = TEXTURE_LOCATIONS.get(color.getSerializedName());
-                    this.getParentModel().copyPropertiesTo(this.model);
-                    this.model.setupAnim(llama, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
-                    VertexConsumer vertexconsumer = bufferIn.getBuffer(RenderType.entityCutoutNoCull(resourcelocation));
-                    this.model.renderToBuffer(poseStack, vertexconsumer, packedLightIn, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
-                }
-            } else {
-                super.render(poseStack, bufferIn, packedLightIn, llama, limbSwing, limbSwingAmount, partialTicks, ageInTicks, netHeadYaw, headPitch);
+        var swagId = llama.getData(Dyenamics.SWAG_HANDLER).getSwagId();
+//        Dyenamics.LOGGER.info("swagid: " + swagId + " " + llama);
+        if (swagId >= 16) {
+            DyenamicDyeColor color = DyenamicDyeColor.byId(swagId);
+            ResourceLocation resourcelocation;
+            if (color != null) {
+                resourcelocation = TEXTURE_LOCATIONS.get(color.getSerializedName());
+                this.getParentModel().copyPropertiesTo(this.model);
+                this.model.setupAnim(llama, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
+                VertexConsumer vertexconsumer = bufferIn.getBuffer(RenderType.entityCutoutNoCull(resourcelocation));
+                this.model.renderToBuffer(poseStack, vertexconsumer, packedLightIn, OverlayTexture.NO_OVERLAY, -1);
             }
-        });
+        } else {
+            super.render(poseStack, bufferIn, packedLightIn, llama, limbSwing, limbSwingAmount, partialTicks, ageInTicks, netHeadYaw, headPitch);
+        }
     }
 }

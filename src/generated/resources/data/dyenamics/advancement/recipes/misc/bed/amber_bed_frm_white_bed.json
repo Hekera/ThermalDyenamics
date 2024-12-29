@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dye": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:dyes/amber"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dyenamics:bed/amber_bed_frm_white_bed"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_white_bed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#minecraft:beds"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_white_bed",
+      "has_dye"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dyenamics:bed/amber_bed_frm_white_bed"
+    ]
+  }
+}

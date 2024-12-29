@@ -6,6 +6,8 @@ import cy.jdkdigital.dyenamics.Dyenamics;
 import cy.jdkdigital.dyenamics.core.init.BlockInit;
 import cy.jdkdigital.dyenamics.core.init.ItemInit;
 import cy.jdkdigital.dyenamics.core.util.DyenamicDyeColor;
+import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
@@ -17,7 +19,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
@@ -77,7 +78,7 @@ public class BlockstateProvider implements DataProvider
 
         List<CompletableFuture<?>> output = new ArrayList<>();
         blockModels.forEach((block, supplier) -> {
-            output.add(DataProvider.saveStable(cache, supplier.get(), blockstatePathProvider.json(ForgeRegistries.BLOCKS.getKey(block))));
+            output.add(DataProvider.saveStable(cache, supplier.get(), blockstatePathProvider.json(BuiltInRegistries.BLOCK.getKey(block))));
         });
         itemModels.forEach((rLoc, supplier) -> {
             output.add(DataProvider.saveStable(cache, supplier.get(), modelPathProvider.json(rLoc)));
@@ -98,14 +99,14 @@ public class BlockstateProvider implements DataProvider
     private void addBlockItemParentModel(Block block, Map<ResourceLocation, Supplier<JsonElement>> itemModels) {
         Item item = Item.BY_BLOCK.get(block);
         if (item != null) {
-            addItemModel(item, new DelegatedModel(ForgeRegistries.BLOCKS.getKey(block).withPath(p -> "block/" + p)), itemModels);
+            addItemModel(item, new DelegatedModel(BuiltInRegistries.BLOCK.getKey(block).withPath(p -> "block/" + p)), itemModels);
         }
     }
 
     private void addOtherBlockItemParentModel(Block block, Block otherBlock, Map<ResourceLocation, Supplier<JsonElement>> itemModels) {
         Item item = Item.BY_BLOCK.get(block);
         if (item != null) {
-            addItemModel(item, new DelegatedModel(ForgeRegistries.BLOCKS.getKey(otherBlock).withPath(p -> "block/" + p)), itemModels);
+            addItemModel(item, new DelegatedModel(BuiltInRegistries.BLOCK.getKey(otherBlock).withPath(p -> "block/" + p)), itemModels);
         }
     }
 
@@ -151,7 +152,7 @@ public class BlockstateProvider implements DataProvider
                 this.blockStateOutput.accept(createSimpleBlock(BlockInit.DYED_BLOCKS.get(color.getSerializedName()).get("rockwool").get(), ModelLocationUtils.getModelLocation(BlockInit.DYED_BLOCKS.get(color.getSerializedName()).get("wool").get())));
                 createCarpetBlock(BlockInit.DYED_BLOCKS.get(color.getSerializedName()).get("wool").get(), BlockInit.DYED_BLOCKS.get(color.getSerializedName()).get("carpet").get());
                 createCubeBlock(BlockInit.DYED_BLOCKS.get(color.getSerializedName()).get("terracotta").get());
-                createCubeBlock(BlockInit.DYED_BLOCKS.get(color.getSerializedName()).get("glazed_terracotta").get());
+                createColoredBlockWithStateRotations(BlockInit.DYED_BLOCKS.get(color.getSerializedName()).get("glazed_terracotta").get());
                 createCubeBlock(BlockInit.DYED_BLOCKS.get(color.getSerializedName()).get("concrete").get());
                 createCubeBlock(BlockInit.DYED_BLOCKS.get(color.getSerializedName()).get("concrete_powder").get());
 
@@ -164,8 +165,25 @@ public class BlockstateProvider implements DataProvider
         }
 
         private void createGlassBlock(Block pBlock) {
-            var template = new ModelTemplate(Optional.of(new ResourceLocation(Dyenamics.MOD_ID, "block/stained_glass")), Optional.empty(), TextureSlot.ALL);
+            var template = new ModelTemplate(Optional.of(ResourceLocation.fromNamespaceAndPath(Dyenamics.MOD_ID, "block/stained_glass")), Optional.empty(), TextureSlot.ALL);
             this.blockStateOutput.accept(createSimpleBlock(pBlock, template.create(pBlock, TextureMapping.defaultTexture(pBlock).put(TextureSlot.ALL, ModelLocationUtils.getModelLocation(pBlock)), this.modelOutput)));
+        }
+
+        private void createColoredBlockWithStateRotations(Block pBlock) {
+            ResourceLocation resourcelocation = TexturedModel.GLAZED_TERRACOTTA.create(pBlock, this.modelOutput);
+            this.blockStateOutput
+                    .accept(
+                            MultiVariantGenerator.multiVariant(pBlock, Variant.variant().with(VariantProperties.MODEL, resourcelocation))
+                                    .with(createHorizontalFacingDispatchAlt())
+                    );
+        }
+
+        private static PropertyDispatch createHorizontalFacingDispatchAlt() {
+            return PropertyDispatch.property(BlockStateProperties.HORIZONTAL_FACING)
+                    .select(Direction.SOUTH, Variant.variant())
+                    .select(Direction.WEST, Variant.variant().with(VariantProperties.Y_ROT, VariantProperties.Rotation.R90))
+                    .select(Direction.NORTH, Variant.variant().with(VariantProperties.Y_ROT, VariantProperties.Rotation.R180))
+                    .select(Direction.EAST, Variant.variant().with(VariantProperties.Y_ROT, VariantProperties.Rotation.R270));
         }
 
         private MultiVariantGenerator createEntityBlock(Block pBlock, ResourceLocation pBaseModel) {

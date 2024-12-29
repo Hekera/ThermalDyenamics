@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dyenamics:wine_stained_glass_pane"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wine_stained_glass": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dyenamics:wine_stained_glass"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_wine_stained_glass"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dyenamics:wine_stained_glass_pane"
+    ]
+  }
+}

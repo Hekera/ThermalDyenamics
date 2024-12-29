@@ -1,20 +1,20 @@
 package cy.jdkdigital.dyenamics.core.init;
 
 import cy.jdkdigital.dyenamics.Dyenamics;
-import cy.jdkdigital.dyenamics.common.items.DyenamicDyeItem;
+import cy.jdkdigital.dyenamics.common.item.DyenamicDyeItem;
 import cy.jdkdigital.dyenamics.core.util.DyenamicDyeColor;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.Item;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class ItemInit
 {
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Dyenamics.MOD_ID);
-    public static final Map<String, RegistryObject<Item>> DYE_ITEMS = new HashMap<>();
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(BuiltInRegistries.ITEM, Dyenamics.MOD_ID);
+    public static final Map<String, DeferredHolder<Item, Item>> DYE_ITEMS = new HashMap<>();
 
     public synchronized static void register() {
         for (DyenamicDyeColor color : DyenamicDyeColor.dyenamicValues()) {

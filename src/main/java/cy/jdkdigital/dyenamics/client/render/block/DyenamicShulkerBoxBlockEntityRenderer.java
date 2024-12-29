@@ -51,7 +51,7 @@ public class DyenamicShulkerBoxBlockEntityRenderer implements BlockEntityRendere
         modelpart.setPos(0.0F, 24.0F - pBlockEntity.getProgress(pPartialTick) * 0.5F * 16.0F, 0.0F);
         modelpart.yRot = 270.0F * pBlockEntity.getProgress(pPartialTick) * ((float) Math.PI / 180F);
         VertexConsumer vertexconsumer = material.buffer(pBufferSource, RenderType::entityCutoutNoCull);
-        this.model.renderToBuffer(pPoseStack, vertexconsumer, pPackedLight, pPackedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
+        this.model.renderToBuffer(pPoseStack, vertexconsumer, pPackedLight, pPackedOverlay, -1);
         pPoseStack.popPose();
     }
 }

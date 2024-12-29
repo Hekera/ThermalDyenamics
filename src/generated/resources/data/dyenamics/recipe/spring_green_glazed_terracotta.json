@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "dyenamics:spring_green_terracotta"
+  },
+  "result": {
+    "count": 1,
+    "id": "dyenamics:spring_green_glazed_terracotta"
+  }
+}

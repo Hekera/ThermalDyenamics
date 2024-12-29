@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "thermal"
+    }
+  ],
+  "group": "rockwool",
+  "ingredients": [
+    {
+      "item": "thermal:white_rockwool"
+    },
+    {
+      "tag": "c:dyes/persimmon"
+    }
+  ],
+  "result": {
+    "item": "dyenamics:persimmon_rockwool"
+  }
+}

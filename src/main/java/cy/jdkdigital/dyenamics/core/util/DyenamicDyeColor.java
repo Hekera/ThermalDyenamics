@@ -1,9 +1,14 @@
 package cy.jdkdigital.dyenamics.core.util;
 
-import cy.jdkdigital.dyenamics.common.items.DyenamicDyeItem;
+import cy.jdkdigital.dyenamics.common.item.DyenamicDyeItem;
+import io.netty.buffer.ByteBuf;
+import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.util.ByIdMap;
+import net.minecraft.util.FastColor;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
@@ -14,6 +19,7 @@ import javax.annotation.Nullable;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Map;
+import java.util.function.IntFunction;
 import java.util.stream.Collectors;
 
 
@@ -59,8 +65,11 @@ public enum DyenamicDyeColor implements StringRepresentable
     CONIFER(33, "conifer", 12245589, DyeColor.LIME, MapColor.TERRACOTTA_LIGHT_GREEN, 12245589, 11061816, 0);
 
     private static final DyenamicDyeColor[] VALUES = Arrays.stream(values()).sorted(Comparator.comparingInt(DyenamicDyeColor::getId)).toArray(DyenamicDyeColor[]::new);
-
+    private static final IntFunction<DyenamicDyeColor> BY_ID = ByIdMap.continuous(DyenamicDyeColor::getId, values(), ByIdMap.OutOfBoundsStrategy.ZERO);
     private static final Map<Integer, DyenamicDyeColor> BY_FIREWORK_COLOR = Arrays.stream(values()).collect(Collectors.toMap((color) -> color.fireworkColor, (color) -> color));
+
+    public static final EnumCodec<DyenamicDyeColor> CODEC = StringRepresentable.fromEnum(DyenamicDyeColor::values);
+    public static final StreamCodec<ByteBuf, DyenamicDyeColor> STREAM_CODEC = ByteBufCodecs.idMapper(BY_ID, DyenamicDyeColor::getId);
 
     private final int id;
     private final String translationKey;
@@ -68,7 +77,6 @@ public enum DyenamicDyeColor implements StringRepresentable
     private final MapColor mapColor;
     private final int colorValue;
     private final int lightValue;
-    private final float[] colorComponentValues;
     private final int fireworkColor;
     private final TagKey<Item> tag;
     private final int textColor;
@@ -76,16 +84,12 @@ public enum DyenamicDyeColor implements StringRepresentable
     DyenamicDyeColor(int idIn, String translationKeyIn, int colorValueIn, DyeColor analogueIn, MapColor mapColorIn, int fireworkColorIn, int textColorIn, int lightValueIn) {
         this.id = idIn;
         this.translationKey = translationKeyIn;
-        this.colorValue = colorValueIn;
+        this.colorValue = FastColor.ARGB32.opaque(colorValueIn);
         this.analogue = analogueIn;
         this.mapColor = mapColorIn;
         this.textColor = textColorIn;
         this.lightValue = lightValueIn;
-        int i = (colorValueIn & 16711680) >> 16;
-        int j = (colorValueIn & '\uff00') >> 8;
-        int k = colorValueIn & 255;
-        this.tag = ItemTags.create(new ResourceLocation("forge", "dyes/" + translationKeyIn));
-        this.colorComponentValues = new float[]{(float) i / 255.0F, (float) j / 255.0F, (float) k / 255.0F};
+        this.tag = ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", "dyes/" + translationKeyIn));
         this.fireworkColor = fireworkColorIn;
     }
 
@@ -101,8 +105,8 @@ public enum DyenamicDyeColor implements StringRepresentable
      * Gets an array containing 3 floats ranging from 0.0 to 1.0: the red, green, and blue components of the
      * corresponding color.
      */
-    public float[] getColorComponentValues() {
-        return this.colorComponentValues;
+    public int getColorComponentValue() {
+        return this.colorValue;
     }
 
     public DyeColor getAnalogue() {

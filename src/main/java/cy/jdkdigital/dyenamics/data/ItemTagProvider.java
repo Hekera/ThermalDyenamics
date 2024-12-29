@@ -12,8 +12,8 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.common.Tags;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -25,7 +25,7 @@ public class ItemTagProvider extends ItemTagsProvider
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-        var shulkerBoxes = tag(ItemTags.create(new ResourceLocation(Dyenamics.MOD_ID, "shulker_boxes")));
+        var shulkerBoxes = tag(ItemTags.create(ResourceLocation.fromNamespaceAndPath(Dyenamics.MOD_ID, "shulker_boxes")));
         shulkerBoxes.add(Items.SHULKER_BOX,
                 Items.WHITE_SHULKER_BOX,
                 Items.ORANGE_SHULKER_BOX,
@@ -53,17 +53,17 @@ public class ItemTagProvider extends ItemTagsProvider
 
             shulkerBoxes.add(BlockInit.DYED_BLOCKS.get(color.getSerializedName()).get("shulker_box").get().asItem());
 
-            copy(Tags.Blocks.GLASS, Tags.Items.GLASS);
+            copy(Tags.Blocks.GLASS_BLOCKS, Tags.Items.GLASS_BLOCKS);
             copy(Tags.Blocks.GLASS_PANES, Tags.Items.GLASS_PANES);
-            copy(Tags.Blocks.STAINED_GLASS, Tags.Items.STAINED_GLASS);
-            copy(Tags.Blocks.STAINED_GLASS_PANES, Tags.Items.STAINED_GLASS_PANES);
-            tag(ItemTags.create(new ResourceLocation("forge:glass/" + color.getSerializedName()))).add(BlockInit.DYED_BLOCKS.get(color.getSerializedName()).get("stained_glass").get().asItem());
-            tag(ItemTags.create(new ResourceLocation("forge:glass_panes/" + color.getSerializedName()))).add(BlockInit.DYED_BLOCKS.get(color.getSerializedName()).get("stained_glass_pane").get().asItem());
+            copy(Tags.Blocks.GLASS_BLOCKS_TINTED, Tags.Items.GLASS_BLOCKS_TINTED);
+//            copy(Tags.Blocks.STAINED_GLASS_PANES, Tags.Items.STAINED_GLASS_PANES);
+            tag(ItemTags.create(ResourceLocation.parse("c:glass/" + color.getSerializedName()))).add(BlockInit.DYED_BLOCKS.get(color.getSerializedName()).get("stained_glass").get().asItem());
+            tag(ItemTags.create(ResourceLocation.parse("c:glass_panes/" + color.getSerializedName()))).add(BlockInit.DYED_BLOCKS.get(color.getSerializedName()).get("stained_glass_pane").get().asItem());
 
             tag(Tags.Items.DYES).add(ItemInit.DYE_ITEMS.get(color.getSerializedName() + "_dye").get());
-            tag(ItemTags.create(new ResourceLocation("forge:dyes/" + color.getSerializedName()))).add(ItemInit.DYE_ITEMS.get(color.getSerializedName() + "_dye").get());
+            tag(ItemTags.create(ResourceLocation.parse("c:dyes/" + color.getSerializedName()))).add(ItemInit.DYE_ITEMS.get(color.getSerializedName() + "_dye").get());
 
-            copy(BlockTags.create(new ResourceLocation("thermal:rockwool")), ItemTags.create(new ResourceLocation("thermal:rockwool")));
+            copy(BlockTags.create(ResourceLocation.parse("thermal:rockwool")), ItemTags.create(ResourceLocation.parse("thermal:rockwool")));
         }
     }
 

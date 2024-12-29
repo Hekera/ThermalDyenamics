@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "dyed_bed",
+  "ingredients": [
+    {
+      "tag": "minecraft:beds"
+    },
+    {
+      "tag": "c:dyes/conifer"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "dyenamics:conifer_bed"
+  }
+}

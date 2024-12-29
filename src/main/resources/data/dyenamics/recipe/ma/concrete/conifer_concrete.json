@@ -1,0 +1,34 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "cucumber"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "mysticalagriculture"
+    },
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:water"
+    }
+  ],
+  "pattern": [
+    "CCC",
+    "CEC",
+    "CCC"
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:water_essence"
+    },
+    "C": {
+      "item": "dyenamics:conifer_concrete_powder"
+    }
+  },
+  "result": {
+    "id": "dyenamics:conifer_concrete",
+    "count": 8
+  }
+}

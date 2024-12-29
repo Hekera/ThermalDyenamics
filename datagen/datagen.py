@@ -2,7 +2,8 @@ import json
 import os
 
 modid = "dyenamics"
-paths = {"recipes": f"resources/data/{modid}/recipes",
+paths = {
+	"recipes": f"resources/data/{modid}/recipes",
 	"block_loot": f"resources/data/{modid}/loot_tables/blocks",
 	"sheep_loot": f"resources/data/{modid}/loot_tables/entities/sheep",
 	"blockstates": f"resources/assets/{modid}/blockstates",

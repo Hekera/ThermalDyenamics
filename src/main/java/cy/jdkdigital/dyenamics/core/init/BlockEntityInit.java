@@ -5,11 +5,11 @@ import cy.jdkdigital.dyenamics.common.blockentity.DyenamicBannerBlockEntity;
 import cy.jdkdigital.dyenamics.common.blockentity.DyenamicBedBlockEntity;
 import cy.jdkdigital.dyenamics.common.blockentity.DyenamicShulkerBoxBlockEntity;
 import cy.jdkdigital.dyenamics.core.util.DyenamicDyeColor;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.Arrays;
 import java.util.List;
@@ -17,9 +17,9 @@ import java.util.stream.Stream;
 
 public class BlockEntityInit
 {
-    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, Dyenamics.MOD_ID);
+    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, Dyenamics.MOD_ID);
 
-    public static final RegistryObject<BlockEntityType<DyenamicBedBlockEntity>> BED = BLOCK_ENTITY_TYPES.register("bed",
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DyenamicBedBlockEntity>> BED = BLOCK_ENTITY_TYPES.register("bed",
             () -> BlockEntityType.Builder.of(
                     DyenamicBedBlockEntity::new,
                     Arrays.stream(DyenamicDyeColor.dyenamicValues()).map(dyenamicDyeColor -> {
@@ -27,7 +27,7 @@ public class BlockEntityInit
                     }).toList().toArray(new Block[0])
             ).build(null));
 
-    public static final RegistryObject<BlockEntityType<DyenamicShulkerBoxBlockEntity>> SHULKER_BOX = BLOCK_ENTITY_TYPES.register("shulker_box",
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DyenamicShulkerBoxBlockEntity>> SHULKER_BOX = BLOCK_ENTITY_TYPES.register("shulker_box",
             () -> BlockEntityType.Builder.of(
                     DyenamicShulkerBoxBlockEntity::new,
                     Arrays.stream(DyenamicDyeColor.dyenamicValues()).map(dyenamicDyeColor -> {
@@ -35,7 +35,7 @@ public class BlockEntityInit
                     }).toList().toArray(new Block[0])
             ).build(null));
 
-    public static final RegistryObject<BlockEntityType<DyenamicBannerBlockEntity>> BANNER = BLOCK_ENTITY_TYPES.register("banner",
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DyenamicBannerBlockEntity>> BANNER = BLOCK_ENTITY_TYPES.register("banner",
             () -> BlockEntityType.Builder.of(
                     DyenamicBannerBlockEntity::new,
                     Arrays.stream(DyenamicDyeColor.dyenamicValues()).flatMap(dyenamicDyeColor -> {
