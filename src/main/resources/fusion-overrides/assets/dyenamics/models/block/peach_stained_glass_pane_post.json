@@ -1,0 +1,17 @@
+{
+  "type": "fusion:connecting",
+  "parent": "dyenamics:block/template/template_glass_pane_post",
+  "connections": {
+    "type": "fusion:or",
+    "predicates": [
+      {
+        "type": "fusion:is_same_block"
+      }
+    ]
+  },
+  "loader": "fusion:model",
+  "textures": {
+    "edge": "dyenamics:block/peach_stained_glass_pane_top",
+    "pane": "dyenamics:block/peach_stained_glass"
+  }
+}

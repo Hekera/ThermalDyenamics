@@ -1,0 +1,9 @@
+{
+  "loader":"fusion:model",
+  "type":"connecting",
+  "connections":[{"type":"is_same_block"}],
+  "parent": "dyenamics:block/stained_glass",
+  "textures": {
+    "all": "dyenamics:block/conifer_stained_glass"
+  }
+}
